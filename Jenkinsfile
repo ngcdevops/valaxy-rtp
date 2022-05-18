@@ -16,7 +16,7 @@ pipeline {
                 echo '<------------- Build completed --------------->'
             }
         }
-/**
+
         stage('Unit Test') {
             steps {
                 echo '<--------------- Unit Testing started  --------------->'
@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-
+/**
 
         stage('Sonar Analysis') {
             environment {
