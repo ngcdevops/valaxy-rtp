@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-/**
+
 
         stage('Sonar Analysis') {
             environment {
@@ -39,7 +39,7 @@ pipeline {
                 echo '<--------------- Sonar Analysis Ends --------------->'
             }    
         }
-
+/**
         stage("Quality Gate") {
             steps {
                 script {
