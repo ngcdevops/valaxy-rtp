@@ -1,4 +1,4 @@
-def imageName = 'nge.jfrog.io/default-docker-virtual/valaxy-rtp:1.0.1'
+def imageName = 'nge.jfrog.io/default-docker-virtual/valaxy-rtp:2.0.1'
 def registry  = 'https://nge.jfrog.io' 
 def app
 pipeline {
@@ -55,6 +55,7 @@ pipeline {
             }
         }
 **/
+  
         stage("Docker Build"){
           steps{
             script{
@@ -65,22 +66,13 @@ pipeline {
           }
 
         }
-/**
-        stage("Docker Build") {
-          steps {
-            script {
-               echo '<--------------- Docker Build Started --------------->'
-               app = docker.build(imageName)
-               echo '<--------------- Docker Build Ends --------------->'
-            }
-          }
-        }
+
 
         stage("Jar Publish") {
           steps {
             script {
               echo '<--------------- Jar Publish Started --------------->'
-                def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactorycredentialid"
+                def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"/*"
                  def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                  def uploadSpec = """{
                       "files": [
@@ -101,7 +93,7 @@ pipeline {
           }
         }
 
-        
+      
         stage("Docker Publish") {
           steps {
             script {
@@ -113,8 +105,6 @@ pipeline {
             }
           }
         }
-
-**/
 
     }
  }
