@@ -93,7 +93,7 @@ pipeline {
           }
         }
 
-/**
+
         stage("Docker Publish") {
           steps {
             script {
@@ -106,7 +106,7 @@ pipeline {
           }
         }
 
-**/
+
 
     }
  }
