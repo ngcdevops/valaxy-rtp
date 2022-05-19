@@ -92,7 +92,7 @@ pipeline {
             }
           }
         }
-
+/**
       
         stage("Docker Publish") {
           steps {
@@ -105,6 +105,8 @@ pipeline {
             }
           }
         }
+
+**/
 
     }
  }
