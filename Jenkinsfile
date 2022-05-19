@@ -72,7 +72,7 @@ pipeline {
           steps {
             script {
               echo '<--------------- Jar Publish Started --------------->'
-                def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"/*"
+                def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactorycredentialid"
                  def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                  def uploadSpec = """{
                       "files": [
@@ -92,8 +92,8 @@ pipeline {
             }
           }
         }
+
 /**
-      
         stage("Docker Publish") {
           steps {
             script {
